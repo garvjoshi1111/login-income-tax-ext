@@ -1,22 +1,38 @@
 {
   "manifest_version": 3,
-  "name": "Income Tax Auto Login",
-  "version": "1.0",
+  "name": "Income Tax India e-Filing Login Helper",
+  "short_name": "IT Login",
+  "version": "1.0.0",
+  "description": "Helps you sign in to the official Income Tax e-Filing portal (incometax.gov.in). Opens the login page, fills your User ID and optional password, and runs the steps you would click manually. User ID and password (if you choose to remember it) are stored only in this browser using Chrome’s local storage—not sent anywhere except to the government portal when you click Login.",
+  "minimum_chrome_version": "109",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Income Tax e-Filing — login helper",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "permissions": [
-    "scripting",
     "activeTab",
+    "scripting",
     "storage",
     "tabs"
   ],
   "host_permissions": [
     "https://eportal.incometax.gov.in/*"
   ],
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [
     {
       "matches": [
@@ -24,7 +40,8 @@
       ],
       "js": [
         "content.js"
-      ]
+      ],
+      "run_at": "document_idle"
     }
   ]
 }

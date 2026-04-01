@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Income Tax e-Filing</h1>
+    <p class="subtitle">Opens the portal and runs login from any tab</p>
+  </header>
+  <main>
+    <label class="field-label" for="username">User ID (PAN / Aadhaar)</label>
+    <input id="username" type="text" autocomplete="username" placeholder="Enter User ID" />
+
+    <label class="field-label" for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" placeholder="Optional if you use OTP only" />
+
+    <label class="checkbox-row">
+      <input type="checkbox" id="rememberPassword" />
+      <span>Remember password. Stored only on this device (not encrypted).</span>
+    </label>
+
+    <p class="hint">User ID is always saved when you click Login. Password is saved only if the box above is checked.</p>
+
+    <button id="loginBtn" type="button">Login</button>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <button id="clearBtn" type="button">Clear saved data</button>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

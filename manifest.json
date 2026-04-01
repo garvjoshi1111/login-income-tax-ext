@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Income Tax Auto Login",
+  "version": "1.0",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://eportal.incometax.gov.in/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://eportal.incometax.gov.in/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
